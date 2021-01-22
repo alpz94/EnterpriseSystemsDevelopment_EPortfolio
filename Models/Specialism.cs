@@ -15,13 +15,13 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         [Required]
         [StringLength(20)]
         [DisplayName("Specialism Name")]
-        private String name { get; set; }
+        private string Name { get; set; }
 
         [Required]
         [StringLength(4000)]
         [DisplayName("Description")]
         [DataType(DataType.MultilineText)]
-        private String description { get; set; }
+        private string Description { get; set; }
 
     }
 }

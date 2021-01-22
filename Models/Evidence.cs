@@ -10,12 +10,12 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
     public class Evidence
     {
         [Range(0, 15, ErrorMessage = "Can only be between 0 .. 15")]
-        private int evidenceID { get; set; }
+        private int EvidenceID { get; set; }
 
         [Required]
         [StringLength(20)]
         [DisplayName("Evidence Name")]
-        private String name { get; set; }
+        private string Name { get; set; }
 
         public FileType FileTypes { get; set; }
 
@@ -23,7 +23,7 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         [StringLength(4000)]
         [DisplayName("Description")]
         [DataType(DataType.MultilineText)]
-        private String description { get; set; }
+        private string Description { get; set; }
 
     }
 }

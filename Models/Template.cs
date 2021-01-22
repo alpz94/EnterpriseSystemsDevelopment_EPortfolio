@@ -10,16 +10,16 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
     public class Template
     {
         [Range(0, 15, ErrorMessage = "Can only be between 0 .. 15")]
-        private int templateID { get; set; }
+        private int TemplateID { get; set; }
 
         [Required]
         [StringLength(20)]
         [DisplayName("Template Name")]
-        private String name { get; set; }
+        private string Name { get; set; }
 
         [Required]
         [Range(0, 10000000)]
-        private int evidence { get; set; }
+        private int Evidence { get; set; }
 
     }
 }

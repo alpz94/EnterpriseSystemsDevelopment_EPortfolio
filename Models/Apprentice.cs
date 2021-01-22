@@ -10,42 +10,42 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
     public class Apprentice
     {
 		[Range(0, 15, ErrorMessage = "Can only be between 0 .. 15")]
-		private int apprenticeID { get; set; }
+		private int ApprenticeID { get; set; }
 
 		[Required]
 		[StringLength(20)]
 		[DisplayName("First Name")]
-		private String firstName { get; set; }
+		private string FirstName { get; set; }
 
 		[Required]
 		[StringLength(20)]
 		[DisplayName("Last Name")]
-		private String lastName { get; set; }
+		private string LastName { get; set; }
 
 		[Required]
 		[StringLength(50)]
 		[DisplayName("Specialism")]
-		private String specialismName { get; set; }
+		private string SpecialismName { get; set; }
 
 		[Required]
 		[StringLength(20)]
 		[DisplayName("Job Title")]
-		private String jobTitle { get; set; }
+		private string JobTitle { get; set; }
 
 		[Required]
 		[StringLength(20)]
 		[DisplayName("Employer")]
-		private String employer { get; set; }
+		private string Employer { get; set; }
 
 		[Required]
 		[StringLength(20)]
 		[DataType(DataType.EmailAddress)]
-		private String email { get; set; }
+		private string Email { get; set; }
 
 		[Required]
 		[StringLength(20)]
 		[DataType(DataType.Password)]
-		private String password { get; set; }
+		private string Password { get; set; }
 
 	}
 
