@@ -7,7 +7,7 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 {
     public class Employer
     {
-        private int employerID;
-        private String name;
+        private int employerID { get; set; }
+        private String name { get; set; }
     }
 }

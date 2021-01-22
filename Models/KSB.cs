@@ -7,9 +7,9 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 {
     public class KSB
     {
-        private int kSBID;
-        private String name;
-        private String description;
+        private int kSBID { get; set; }
+        private String name { get; set; }
+        private String description { get; set; }
 
 
     }

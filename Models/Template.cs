@@ -7,10 +7,10 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 {
     public class Template
     {
-        private int templateID;
-        private String name;
-        private int kSBID;
-        private blob evidence;
+        private int templateID { get; set; }
+        private String name { get; set; }
+        private int kSBID { get; set; }
+        private blob evidence { get; set; }
 
     }
 }

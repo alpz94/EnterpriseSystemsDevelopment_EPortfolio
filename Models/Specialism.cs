@@ -7,9 +7,9 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 {
     public class Specialism
     {
-        private int specialismID;
-        private String name;
-        private String description;
+        private int specialismID { get; set; }
+        private String name { get; set; }
+        private String description { get; set; }
 
     }
 }

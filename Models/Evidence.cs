@@ -7,10 +7,10 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 {
     public class Evidence
     {
-        private int evidenceID;
-        private String name;
-        private enum fileType;
-        private String description;
+        private int evidenceID { get; set; }
+        private String name { get; set; }
+        private enum fileType { get; set; }
+        private String description { get; set; }
 
     }
 }
