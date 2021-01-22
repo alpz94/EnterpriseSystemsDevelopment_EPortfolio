@@ -9,7 +9,7 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 {
     public class Evidence
     {
-        [StringLength(50)]
+        [Range(0, 15, ErrorMessage = "Can only be between 0 .. 15")]
         private int evidenceID { get; set; }
 
         [Required]
