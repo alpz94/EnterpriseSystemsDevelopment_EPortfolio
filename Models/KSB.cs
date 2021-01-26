@@ -9,8 +9,8 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 {
     public class KSB
     {
-        [StringLength(20)]
-        private int KSBID { get; set; }
+        [Key]
+        private int KsbId { get; set; }
 
         [Required]
         [StringLength(20)]

@@ -9,8 +9,8 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 {
     public class Template
     {
-        [Range(0, 15, ErrorMessage = "Can only be between 0 .. 15")]
-        private int TemplateID { get; set; }
+        [Key]
+        private int TemplateId { get; set; }
 
         [Required]
         [StringLength(20)]

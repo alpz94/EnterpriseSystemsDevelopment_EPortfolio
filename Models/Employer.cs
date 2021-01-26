@@ -9,8 +9,8 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 {
     public class Employer
     {
-        [Range(0, 15, ErrorMessage = "Can only be between 0 .. 15")]
-        private int EmployerID { get; set; }
+        [Key]
+        private int EmployerId { get; set; }
 
         [Required]
         [StringLength(20)]

@@ -9,8 +9,8 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 {
     public class Specialism
     {
-        [Range(0, 15, ErrorMessage = "Can only be between 0 .. 15")]
-        private int specialismID { get; set; }
+        [Key]
+        private int SpecialismId { get; set; }
 
         [Required]
         [StringLength(20)]
