@@ -46,7 +46,6 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 		[StringLength(20)]
 		[DataType(DataType.Password)]
 		private string Password { get; set; }
-
 	}
 
 }

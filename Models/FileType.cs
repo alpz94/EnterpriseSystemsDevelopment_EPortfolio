@@ -12,6 +12,5 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 			PDF,
 			URL,
 			Text,
-
 	}
 }

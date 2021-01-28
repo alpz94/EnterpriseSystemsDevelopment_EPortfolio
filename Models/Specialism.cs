@@ -22,6 +22,5 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         [DisplayName("Description")]
         [DataType(DataType.MultilineText)]
         private string Description { get; set; }
-
     }
 }
