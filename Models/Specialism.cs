@@ -10,17 +10,17 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
     public class Specialism
     {
         [Key]
-        private int SpecialismId { get; set; }
+        public int SpecialismId { get; set; }
 
         [Required]
         [StringLength(20)]
         [DisplayName("Specialism Name")]
-        private string Name { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [StringLength(4000)]
         [DisplayName("Description")]
         [DataType(DataType.MultilineText)]
-        private string Description { get; set; }
+        public string Description { get; set; }
     }
 }
