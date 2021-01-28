@@ -10,17 +10,17 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
     public class KSB
     {
         [Key]
-        private int KsbId { get; set; }
+        public int KsbId { get; set; }
 
         [Required]
         [StringLength(20)]
         [DisplayName("KSB Name")]
-        private string Name { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [StringLength(4000)]
         [DisplayName("Description")]
         [DataType(DataType.MultilineText)]
-        private string Description { get; set; }
+        public string Description { get; set; }
     }
 }
