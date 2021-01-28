@@ -20,6 +20,5 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         [Required]
         [Range(0, 10000000)]
         public int Evidence { get; set; }
-
     }
 }
