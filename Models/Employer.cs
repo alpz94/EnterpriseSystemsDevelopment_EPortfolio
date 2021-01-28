@@ -10,11 +10,11 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
     public class Employer
     {
         [Key]
-        private int EmployerId { get; set; }
+        public int EmployerId { get; set; }
 
         [Required]
         [StringLength(20)]
         [DisplayName("Employer Name")]
-        private string Name { get; set; }
+        public string Name { get; set; }
     }
 }
