@@ -10,42 +10,42 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
     public class Apprentice
     {
 		[Key]
-		private int ApprenticeId { get; set; }
+		public int ApprenticeId { get; set; }
 
 		[Required]
 		[StringLength(20)]
 		[DisplayName("First Name")]
-		private string FirstName { get; set; }
+		public string FirstName { get; set; }
 
 		[Required]
 		[StringLength(20)]
 		[DisplayName("Last Name")]
-		private string LastName { get; set; }
+		public string LastName { get; set; }
 
 		[Required]
 		[StringLength(50)]
 		[DisplayName("Specialism")]
-		private string SpecialismName { get; set; }
+		public string SpecialismName { get; set; }
 
 		[Required]
 		[StringLength(20)]
 		[DisplayName("Job Title")]
-		private string JobTitle { get; set; }
+		public string JobTitle { get; set; }
 
 		[Required]
 		[StringLength(20)]
 		[DisplayName("Employer")]
-		private string Employer { get; set; }
+		public string Employer { get; set; }
 
 		[Required]
 		[StringLength(20)]
 		[DataType(DataType.EmailAddress)]
-		private string Email { get; set; }
+		public string Email { get; set; }
 
 		[Required]
 		[StringLength(20)]
 		[DataType(DataType.Password)]
-		private string Password { get; set; }
+		public string Password { get; set; }
 	}
 
 }
