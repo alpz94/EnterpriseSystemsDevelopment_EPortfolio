@@ -10,16 +10,16 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
     public class Template
     {
         [Key]
-        private int TemplateId { get; set; }
+        public int TemplateId { get; set; }
 
         [Required]
         [StringLength(20)]
         [DisplayName("Template Name")]
-        private string Name { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [Range(0, 10000000)]
-        private int Evidence { get; set; }
+        public int Evidence { get; set; }
 
     }
 }
