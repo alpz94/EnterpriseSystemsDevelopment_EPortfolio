@@ -10,7 +10,7 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
     public class Tutor
     {
         [Key]
-        private int TutorId { get; set; }
+        public int TutorId { get; set; }
 
         [Required]
         [StringLength(20)]
@@ -20,18 +20,16 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         [Required]
         [StringLength(20)]
         [DisplayName("Last Name")]
-        private string LastName { get; set; }
+        public string LastName { get; set; }
 
         [Required]
         [StringLength(100)]
         [DataType(DataType.EmailAddress)]
-        private string Email { get; set; }
+        public string Email { get; set; }
 
         [Required]
         [StringLength(20)]
         [DataType(DataType.Password)]
-        private string Password { get; set; }
-        
-
+        public string Password { get; set; }
     }
 }
