@@ -10,12 +10,12 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
     public class Evidence
     {
         [Key]
-        private int EvidenceId { get; set; }
+        public int EvidenceId { get; set; }
 
         [Required]
         [StringLength(20)]
         [DisplayName("Evidence Name")]
-        private string Name { get; set; }
+        public string Name { get; set; }
 
         public FileType FileTypes { get; set; }
 
@@ -23,6 +23,6 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         [StringLength(4000)]
         [DisplayName("Description")]
         [DataType(DataType.MultilineText)]
-        private string Description { get; set; }
+        public string Description { get; set; }
     }
 }
