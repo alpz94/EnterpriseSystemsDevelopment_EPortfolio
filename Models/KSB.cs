@@ -24,6 +24,6 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         public string Description { get; set; }
 
         //Get Set Template that contains KSB 
-        public virtual Template TemplateOne { get; set; }
+        public virtual Template Template { get; set; }
     }
 }

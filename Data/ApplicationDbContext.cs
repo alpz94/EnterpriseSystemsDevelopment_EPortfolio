@@ -15,7 +15,7 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Data
         }
 
         //Linking Template model class to database
-        public DbSet<Template> TemplateOne { get; set; }
+        public DbSet<Template> Template { get; set; }
 
         //Linking KSB model class to database
         public DbSet<KSB> KSBs { get; set; }
