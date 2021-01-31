@@ -7,5 +7,8 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Data
 {
     public class DbInitialiser
     {
+        public static void Initialise(ApplicationDbContext context)
+        {
+        }
     }
 }
