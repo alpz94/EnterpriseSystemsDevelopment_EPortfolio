@@ -30,7 +30,7 @@ namespace EnterpriseSystemsDevelopment_EPortfolio
                 try
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
-                    DatabaseInitialiser.Initialise(context);
+                    DbInitialiser.Initialise(context);
                 }
                 catch (Exception ex)
                 {
