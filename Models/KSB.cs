@@ -22,5 +22,8 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         [DisplayName("Description")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
+
+        //Get Set Template that contains KSB 
+        public virtual Template TemplateOne { get; set; }
     }
 }
