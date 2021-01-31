@@ -18,7 +18,10 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         public string Name { get; set; }
 
         [Required]
-        [Range(0, 10000000)]
+        [Range(0, 10000)]
         public int Evidence { get; set; }
+
+        //Template contains a collection of KSBs
+        public virtual ICollection<KSB> KSBs { get; set; }
     }
 }
