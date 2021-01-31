@@ -15,6 +15,8 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Data
         }
 
         public DbSet<Template> TemplateOne { get; set; }
-        
+
+        public DbSet<KSB> KSBs { get; set; }
+
     }
 }
