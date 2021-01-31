@@ -13,7 +13,16 @@ namespace EnterpriseSystemsDevelopment_EPortfolio
     {
         public static void Main(string[] args)
         {
-            
+            var host = CreateHostBuilder(args).Build();
+
+            CreateDbIfNotExists(host);
+
+            host.Run();
+        }
+
+        private static void CreateDbIfNotExists(IHost host)
+        {
+            throw new NotImplementedException();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
