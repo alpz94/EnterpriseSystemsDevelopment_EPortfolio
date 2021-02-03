@@ -5,7 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Software Engineering</h1>
+
+<input type="text" placeholder="Search..">
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -19,6 +21,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Evidence)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KSBs)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -26,11 +31,15 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.KSBs)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Evidence)
             </td>
+            
             <td>
                 <a asp-action="Edit" asp-route-id="@item.TemplateId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.TemplateId">Details</a> |
