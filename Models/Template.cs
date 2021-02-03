@@ -14,12 +14,18 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 
         [Required]
         [StringLength(20)]
-        [DisplayName("Template Name")]
+        [DisplayName("KSB ID")]
+        public KsbKeys KsbKey { get; set; }
+
+        [Required]
+        [StringLength(20)]
+        [DisplayName("Description")]
         public string Name { get; set; }
 
         [Required]
-        [Range(0, 10000)]
-        public int Evidence { get; set; }
+        [StringLength(20)]
+        [DisplayName("Evidence")]
+        public string Evidence { get; set; }
 
         //Template contains a collection of KSBs
         public virtual ICollection<KSB> KSBs { get; set; }

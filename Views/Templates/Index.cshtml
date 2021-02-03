@@ -16,14 +16,18 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.KSBs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KsbKey)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Evidence)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KSBs)
-            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -34,12 +38,15 @@
                 @Html.DisplayFor(modelItem => item.KSBs)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.KsbKey)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Evidence)
             </td>
-            
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.TemplateId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.TemplateId">Details</a> |
