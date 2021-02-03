@@ -20,5 +20,8 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Data
         //Linking KSB model class to database
         public DbSet<KSB> KSBs { get; set; }
 
+        //Linking KSB model class to database
+        public DbSet<EnterpriseSystemsDevelopment_EPortfolio.Models.Evidence> Evidence { get; set; }
+
     }
 }
