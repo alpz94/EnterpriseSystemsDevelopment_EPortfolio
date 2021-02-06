@@ -12,6 +12,8 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         [Key]
         public int EvidenceId { get; set; }
 
+        public int TemplateId { get; set; }
+
         [Required]
         [StringLength(20)]
         [DisplayName("Evidence Name")]
@@ -24,5 +26,7 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         [DisplayName("Description")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
+
+        public virtual Template Template { get; set; }
     }
 }

@@ -39,11 +39,6 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 		[DataType(DataType.EmailAddress)]
 		public string Email { get; set; }
 
-		[Required]
-		[StringLength(20)]
-		[DataType(DataType.Password)]
-		public string Password { get; set; }
-
 		//ICollection of template
 		public virtual ICollection<Template> Templates { get; set; }
 	}

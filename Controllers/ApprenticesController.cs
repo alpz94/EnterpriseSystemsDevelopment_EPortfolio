@@ -10,23 +10,22 @@ using EnterpriseSystemsDevelopment_EPortfolio.Models;
 
 namespace EnterpriseSystemsDevelopment_EPortfolio.Controllers
 {
-    public class TemplatesController : Controller
+    public class ApprenticesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public TemplatesController(ApplicationDbContext context)
+        public ApprenticesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Templates
+        // GET: Apprentices
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Template.Include(t => t.Apprentice);
-            return View(await applicationDbContext.ToListAsync());
+            return View(await _context.Apprentices.ToListAsync());
         }
 
-        // GET: Templates/Details/5
+        // GET: Apprentices/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,42 +33,39 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Controllers
                 return NotFound();
             }
 
-            var template = await _context.Template
-                .Include(t => t.Apprentice)
-                .FirstOrDefaultAsync(m => m.TemplateId == id);
-            if (template == null)
+            var apprentice = await _context.Apprentices
+                .FirstOrDefaultAsync(m => m.ApprenticeId == id);
+            if (apprentice == null)
             {
                 return NotFound();
             }
 
-            return View(template);
+            return View(apprentice);
         }
 
-        // GET: Templates/Create
+        // GET: Apprentices/Create
         public IActionResult Create()
         {
-            ViewData["ApprenticeId"] = new SelectList(_context.Apprentices, "ApprenticeId", "Email");
             return View();
         }
 
-        // POST: Templates/Create
+        // POST: Apprentices/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TemplateId,ApprenticeId,KsbType,KsbKey")] Template template)
+        public async Task<IActionResult> Create([Bind("ApprenticeId,Specialism,FirstName,LastName,JobTitle,Employer,Email")] Apprentice apprentice)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(template);
+                _context.Add(apprentice);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ApprenticeId"] = new SelectList(_context.Apprentices, "ApprenticeId", "Email", template.ApprenticeId);
-            return View(template);
+            return View(apprentice);
         }
 
-        // GET: Templates/Edit/5
+        // GET: Apprentices/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,23 +73,22 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Controllers
                 return NotFound();
             }
 
-            var template = await _context.Template.FindAsync(id);
-            if (template == null)
+            var apprentice = await _context.Apprentices.FindAsync(id);
+            if (apprentice == null)
             {
                 return NotFound();
             }
-            ViewData["ApprenticeId"] = new SelectList(_context.Apprentices, "ApprenticeId", "Email", template.ApprenticeId);
-            return View(template);
+            return View(apprentice);
         }
 
-        // POST: Templates/Edit/5
+        // POST: Apprentices/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TemplateId,ApprenticeId,KsbType,KsbKey")] Template template)
+        public async Task<IActionResult> Edit(int id, [Bind("ApprenticeId,Specialism,FirstName,LastName,JobTitle,Employer,Email")] Apprentice apprentice)
         {
-            if (id != template.TemplateId)
+            if (id != apprentice.ApprenticeId)
             {
                 return NotFound();
             }
@@ -102,12 +97,12 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Controllers
             {
                 try
                 {
-                    _context.Update(template);
+                    _context.Update(apprentice);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TemplateExists(template.TemplateId))
+                    if (!ApprenticeExists(apprentice.ApprenticeId))
                     {
                         return NotFound();
                     }
@@ -118,11 +113,10 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ApprenticeId"] = new SelectList(_context.Apprentices, "ApprenticeId", "Email", template.ApprenticeId);
-            return View(template);
+            return View(apprentice);
         }
 
-        // GET: Templates/Delete/5
+        // GET: Apprentices/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -130,31 +124,30 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Controllers
                 return NotFound();
             }
 
-            var template = await _context.Template
-                .Include(t => t.Apprentice)
-                .FirstOrDefaultAsync(m => m.TemplateId == id);
-            if (template == null)
+            var apprentice = await _context.Apprentices
+                .FirstOrDefaultAsync(m => m.ApprenticeId == id);
+            if (apprentice == null)
             {
                 return NotFound();
             }
 
-            return View(template);
+            return View(apprentice);
         }
 
-        // POST: Templates/Delete/5
+        // POST: Apprentices/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var template = await _context.Template.FindAsync(id);
-            _context.Template.Remove(template);
+            var apprentice = await _context.Apprentices.FindAsync(id);
+            _context.Apprentices.Remove(apprentice);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TemplateExists(int id)
+        private bool ApprenticeExists(int id)
         {
-            return _context.Template.Any(e => e.TemplateId == id);
+            return _context.Apprentices.Any(e => e.ApprenticeId == id);
         }
     }
 }

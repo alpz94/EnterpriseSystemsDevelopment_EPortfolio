@@ -2,49 +2,47 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_TutorLayout.cshtml";
 }
 
-<h1>Software Engineering</h1>
-<div>
-    <input type="text" placeholder="Search..">
-</div>
+<h1>Index</h1>
 
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.KsbType)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.KsbKey)
             </th>
             <th>
-                Description
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Evidence)
+                @Html.DisplayNameFor(model => model.Apprentice)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(model => item.KsbKey)
-                </td>
-                <td>
-                    @{ string Description = item.KsbKey.KsbDescription();}
-                    <span>@Description</span>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Evidence)
-                </td>
-
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.TemplateId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.TemplateId">Details</a>
-                </td>
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KsbType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KsbKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apprentice.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TemplateId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TemplateId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TemplateId">Delete</a>
+            </td>
+        </tr>
+}
     </tbody>
 </table>

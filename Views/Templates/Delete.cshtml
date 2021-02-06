@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Delete";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_TutorLayout.cshtml";
 }
 
 <h1>Delete</h1>
@@ -13,17 +13,23 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.KsbType)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.KsbType)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Evidence)
+            @Html.DisplayNameFor(model => model.KsbKey)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Evidence)
+            @Html.DisplayFor(model => model.KsbKey)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Apprentice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Apprentice.Email)
+        </dd class>
     </dl>
     
     <form asp-action="Delete">
