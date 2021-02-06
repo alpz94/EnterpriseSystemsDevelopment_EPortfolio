@@ -12,6 +12,8 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 		[Key]
 		public int ApprenticeId { get; set; }
 
+		public SpecialismType Specialism { get; set; }
+
 		[Required]
 		[StringLength(20)]
 		[DisplayName("First Name")]
@@ -21,11 +23,6 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 		[StringLength(20)]
 		[DisplayName("Last Name")]
 		public string LastName { get; set; }
-
-		[Required]
-		[StringLength(50)]
-		[DisplayName("Specialism")]
-		public string SpecialismName { get; set; }
 
 		[Required]
 		[StringLength(20)]
@@ -46,6 +43,9 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
 		[StringLength(20)]
 		[DataType(DataType.Password)]
 		public string Password { get; set; }
+
+		//ICollection of template
+		public virtual ICollection<Template> Templates { get; set; }
 	}
 
 }

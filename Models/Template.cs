@@ -12,6 +12,9 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         [Key]
         public int TemplateId { get; set; }
 
+        //KsbType
+        public KsbType KsbType { get; set; }
+        
         [Required]
         [StringLength(20)]
         [DisplayName("KSB ID")]
@@ -27,7 +30,7 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         [DisplayName("Evidence")]
         public string Evidence { get; set; }
 
-        //Template contains a collection of KSBs
-        public virtual ICollection<KSB> KSBs { get; set; }
+        //Template contains a collection of Evidence
+        public virtual ICollection<Evidence> Evidences { get; set; }
     }
 }

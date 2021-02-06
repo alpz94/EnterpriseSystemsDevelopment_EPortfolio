@@ -6,15 +6,13 @@
 }
 
 <h1>Software Engineering</h1>
-
-<input type="text" placeholder="Search..">
+<div>
+    <input type="text" placeholder="Search..">
+</div>
 
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.KSBs)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.KsbKey)
             </th>
@@ -24,32 +22,29 @@
             <th>
                 @Html.DisplayNameFor(model => model.Evidence)
             </th>
-
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.KSBs)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.KsbKey)
-            </td>
-            <td>
-                @{ string Description = item.KsbKey.KsbDescription();}
-                <span>@Description</span>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Evidence)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.KsbKey)
+                </td>
+                <td>
+                    @{ string Description = item.KsbKey.KsbDescription();}
+                    <span>@Description</span>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Evidence)
+                </td>
 
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TemplateId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TemplateId">Details</a>
-            </td>
-        </tr>
-}
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.TemplateId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.TemplateId">Details</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

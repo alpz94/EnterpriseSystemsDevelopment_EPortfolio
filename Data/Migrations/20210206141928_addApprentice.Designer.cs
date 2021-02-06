@@ -4,14 +4,16 @@ using EnterpriseSystemsDevelopment_EPortfolio.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EnterpriseSystemsDevelopment_EPortfolio.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210206141928_addApprentice")]
+    partial class addApprentice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,10 +58,12 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Data.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
-                    b.Property<int>("Specialism")
+                    b.Property<int>("SpecialismId")
                         .HasColumnType("int");
 
                     b.HasKey("ApprenticeId");
+
+                    b.HasIndex("SpecialismId");
 
                     b.ToTable("Apprentices");
                 });
@@ -92,6 +96,28 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Data.Migrations
                     b.HasIndex("TemplateId");
 
                     b.ToTable("Evidence");
+                });
+
+            modelBuilder.Entity("EnterpriseSystemsDevelopment_EPortfolio.Models.Specialism", b =>
+                {
+                    b.Property<int>("SpecialismId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(4000)")
+                        .HasMaxLength(4000);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.HasKey("SpecialismId");
+
+                    b.ToTable("Specialism");
                 });
 
             modelBuilder.Entity("EnterpriseSystemsDevelopment_EPortfolio.Models.Template", b =>
@@ -326,6 +352,15 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("EnterpriseSystemsDevelopment_EPortfolio.Models.Apprentice", b =>
+                {
+                    b.HasOne("EnterpriseSystemsDevelopment_EPortfolio.Models.Specialism", "Specialism")
+                        .WithMany()
+                        .HasForeignKey("SpecialismId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EnterpriseSystemsDevelopment_EPortfolio.Models.Evidence", b =>

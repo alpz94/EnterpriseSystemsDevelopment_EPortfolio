@@ -18,10 +18,12 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Data
         public DbSet<Template> Template { get; set; }
 
         //Linking KSB model class to database
-        public DbSet<KSB> KSBs { get; set; }
+        public DbSet<Evidence> Evidence { get; set; }
 
-        //Linking KSB model class to database
-        public DbSet<EnterpriseSystemsDevelopment_EPortfolio.Models.Evidence> Evidence { get; set; }
+        //Linking Apprentice model class to database
+        public DbSet<Apprentice> Apprentices { get; set; }
+
+
 
     }
 }
