@@ -18,7 +18,6 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Models
         public KsbType KsbType { get; set; }
         
         [Required]
-        [StringLength(20)]
         [DisplayName("KSB ID")]
         public KsbKeys KsbKey { get; set; }
 

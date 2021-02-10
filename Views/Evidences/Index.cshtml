@@ -5,44 +5,34 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Evidence Entry</h1>
+<form>
+    <div class="form-group">
+        <h2 for="evidenceEntry">Browse files:</h2>
+        <input type="file" class="form-control-file" id="browseEvidence">
+    </div>
+</form>
+<div>
+    <label for="textarea">Support your evidence with text and more:</label>
+</div>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+</head>
+<body>
+    <textarea name="content" id="editor">
+        &lt;p&gt;&lt;/p&gt;
+    </textarea>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+</body>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-secondary btn-sm" asp-action="Create">Upload</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FileTypes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FileTypes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.EvidenceId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.EvidenceId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.EvidenceId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>

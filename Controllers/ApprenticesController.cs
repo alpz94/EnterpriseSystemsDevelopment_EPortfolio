@@ -58,6 +58,7 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Controllers
         {
             if (ModelState.IsValid)
             {
+                AddApprenticeKeys(apprentice);
                 _context.Add(apprentice);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -148,6 +149,45 @@ namespace EnterpriseSystemsDevelopment_EPortfolio.Controllers
         private bool ApprenticeExists(int id)
         {
             return _context.Apprentices.Any(e => e.ApprenticeId == id);
+        }
+
+        public IActionResult AddKsbKeys()
+        {
+            var apprentices = _context.Apprentices.ToList();
+            foreach(Apprentice apprentice in apprentices)
+            {
+                AddApprenticeKeys(apprentice);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        public void AddApprenticeKeys(Apprentice apprentice)
+        {
+            apprentice.Templates = new List<Template>();
+
+            foreach (KsbKeys ksbKeys in Enum.GetValues(typeof(KsbKeys)))
+            {
+                Template template = new Template();
+                template.KsbKey = ksbKeys;
+
+                if ((ksbKeys >= KsbKeys.SE1 & ksbKeys <= KsbKeys.SE8) || (ksbKeys >= KsbKeys.C1 & ksbKeys <= KsbKeys.C7))
+                {
+                    template.KsbType = KsbType.Skills;
+                }
+                else if ((ksbKeys >= KsbKeys.SE9 & ksbKeys <= KsbKeys.SE15) || (ksbKeys >= KsbKeys.C7 & ksbKeys <= KsbKeys.C17))
+                {
+                    template.KsbType = KsbType.Knowledge;
+                }
+                else
+                {
+                    template.KsbType = KsbType.Behaviour;
+                }
+
+                apprentice.Templates.Add(template);
+
+                _context.Template.Add(template);
+            }
+            _context.SaveChanges();
         }
     }
 }

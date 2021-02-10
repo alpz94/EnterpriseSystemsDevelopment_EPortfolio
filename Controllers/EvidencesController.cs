@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EnterpriseSystemsDevelopment_EPortfolio.Data;
 using EnterpriseSystemsDevelopment_EPortfolio.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using System.Reflection.Metadata;
 
 namespace EnterpriseSystemsDevelopment_EPortfolio.Controllers
 {
